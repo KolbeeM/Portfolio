@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kolbee Morris — Data Analyst</title>
+  <meta name="description" content="Personal portfolio of Kolbee Morris — Data Analyst with a background in Recreation Administration, bridging operations and advanced analytics with Python, SQL, and Tableau." />
+  <meta name="author" content="Kolbee Morris" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="canonical" href="https://kolbeemorris.com/" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Kolbee Morris — Data Analyst" />
+  <meta property="og:description" content="Bridging operations and analytics. Python, SQL, Tableau, and applied statistics." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kolbeemorris.com/" />
+  <meta property="og:image" content="https://kolbeemorris.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Kolbee Morris" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kolbee Morris — Data Analyst" />
+  <meta name="twitter:description" content="Bridging operations and analytics. Python, SQL, Tableau, and applied statistics." />
+  <meta name="twitter:image" content="https://kolbeemorris.com/og-image.png" />
+
+  <!-- Person schema for Google knowledge panels -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Kolbee Morris",
+    "url": "https://kolbeemorris.com/",
+    "image": "https://kolbeemorris.com/og-image.png",
+    "jobTitle": "Data Analyst",
+    "email": "mailto:kolbee.morris0502@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Syracuse",
+      "addressRegion": "UT",
+      "addressCountry": "US"
+    },
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Utah State University",
+        "url": "https://www.usu.edu/"
+      }
+    ],
+    "knowsAbout": [
+      "Data Analysis", "Python", "SQL", "Tableau", "Regression Analysis",
+      "Cluster Analysis", "Econometrics", "Statistical Modeling"
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/in/kolbee-morris-526490307/",
+      "https://github.com/KolbeeM"
+    ]
+  }
+  </script>
+
+  <!-- Tailwind via CDN with dark mode + custom palette -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+            display: ['"Space Grotesk"', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace']
+          },
+          colors: {
+            ink: {
+              50:  '#f8fafc',
+              100: '#f1f5f9',
+              200: '#e2e8f0',
+              300: '#cbd5e1',
+              400: '#94a3b8',
+              500: '#64748b',
+              600: '#475569',
+              700: '#334155',
+              800: '#1e293b',
+              900: '#0f172a',
+              950: '#020617'
+            },
+            brand: {
+              50:  '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              300: '#93c5fd',
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+              950: '#172554'
+            }
+          },
+          boxShadow: {
+            'soft': '0 1px 2px rgba(15,23,42,0.04), 0 8px 24px rgba(15,23,42,0.06)',
+            'lift': '0 10px 30px -10px rgba(15,23,42,0.25)'
+          },
+          animation: {
+            'fade-up': 'fadeUp 0.7s ease-out both'
+          },
+          keyframes: {
+            fadeUp: {
+              '0%': { opacity: 0, transform: 'translateY(12px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Apply theme on first paint to avoid FOUC */
+    html { background-color: #f8fafc; }
+    html.dark { background-color: #020617; }
+
+    /* Subtle grid backdrop */
+    .bg-grid {
+      background-image:
+        radial-gradient(circle at 1px 1px, rgba(15, 23, 42, 0.07) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+    .dark .bg-grid {
+      background-image:
+        radial-gradient(circle at 1px 1px, rgba(148, 163, 184, 0.10) 1px, transparent 0);
+    }
+
+    /* Section anchor offset for sticky header */
+    section { scroll-margin-top: 5rem; }
+
+    /* Soft gradient blob */
+    .blob {
+      position: absolute;
+      filter: blur(60px);
+      opacity: 0.45;
+      pointer-events: none;
+      border-radius: 9999px;
+    }
+  </style>
+  <script>
+    // Theme bootstrap (must run before body paints)
+    (function () {
+      try {
+        const stored = localStorage.getItem('theme');
+        const prefers = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (stored === 'dark' || (!stored && prefers)) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) { /* localStorage may be unavailable */ }
+    })();
+  </script>
+</head>
+<body class="font-sans bg-ink-50 text-ink-800 dark:bg-ink-950 dark:text-ink-100 antialiased selection:bg-brand-200 selection:text-brand-900">
+
+  <!-- Skip link for keyboard users -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-3 focus:py-2 focus:rounded-md focus:bg-ink-900 focus:text-white">
+    Skip to content
+  </a>
+
+  <!-- =================== HEADER =================== -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-ink-50/75 dark:bg-ink-950/70 border-b border-ink-200/60 dark:border-ink-800/60">
+    <nav class="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between" aria-label="Primary">
+      <a href="#hero" class="flex items-center gap-2 group">
+        <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-brand-700 text-white font-display font-bold shadow-soft group-hover:bg-brand-600 transition">KM</span>
+        <span class="hidden sm:inline font-display text-base font-semibold tracking-tight">Kolbee Morris</span>
+      </a>
+
+      <ul class="hidden md:flex items-center gap-1 text-sm">
+        <li><a href="#about" class="px-3 py-2 rounded-md text-ink-600 hover:text-brand-700 hover:bg-ink-100 dark:text-ink-300 dark:hover:text-brand-300 dark:hover:bg-ink-800/60 transition">About</a></li>
+        <li><a href="#skills" class="px-3 py-2 rounded-md text-ink-600 hover:text-brand-700 hover:bg-ink-100 dark:text-ink-300 dark:hover:text-brand-300 dark:hover:bg-ink-800/60 transition">Skills</a></li>
+        <li><a href="#projects" class="px-3 py-2 rounded-md text-ink-600 hover:text-brand-700 hover:bg-ink-100 dark:text-ink-300 dark:hover:text-brand-300 dark:hover:bg-ink-800/60 transition">Projects</a></li>
+        <li><a href="#experience" class="px-3 py-2 rounded-md text-ink-600 hover:text-brand-700 hover:bg-ink-100 dark:text-ink-300 dark:hover:text-brand-300 dark:hover:bg-ink-800/60 transition">Experience</a></li>
+        <li><a href="#contact" class="px-3 py-2 rounded-md text-ink-600 hover:text-brand-700 hover:bg-ink-100 dark:text-ink-300 dark:hover:text-brand-300 dark:hover:bg-ink-800/60 transition">Contact</a></li>
+      </ul>
+
+      <div class="flex items-center gap-2">
+        <a href="resume.pdf" download
+           class="hidden sm:inline-flex items-center gap-2 text-sm font-medium px-3 py-2 rounded-md bg-brand-700 text-white hover:bg-brand-600 shadow-soft transition">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Resume
+        </a>
+
+        <button id="theme-toggle" type="button"
+                class="inline-flex items-center justify-center w-10 h-10 rounded-md border border-ink-200 dark:border-ink-700 text-ink-700 dark:text-ink-200 hover:bg-ink-100 dark:hover:bg-ink-800 transition"
+                aria-label="Toggle dark mode">
+          <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 hidden dark:block" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 dark:hidden" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+
+        <button id="menu-toggle" type="button"
+                class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md border border-ink-200 dark:border-ink-700 text-ink-700 dark:text-ink-200 hover:bg-ink-100 dark:hover:bg-ink-800 transition"
+                aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden border-t border-ink-200/60 dark:border-ink-800/60 bg-ink-50/95 dark:bg-ink-950/95 backdrop-blur">
+      <ul class="px-5 py-3 space-y-1 text-sm">
+        <li><a href="#about" class="block px-3 py-2 rounded-md hover:bg-ink-100 dark:hover:bg-ink-800/60">About</a></li>
+        <li><a href="#skills" class="block px-3 py-2 rounded-md hover:bg-ink-100 dark:hover:bg-ink-800/60">Skills</a></li>
+        <li><a href="#projects" class="block px-3 py-2 rounded-md hover:bg-ink-100 dark:hover:bg-ink-800/60">Projects</a></li>
+        <li><a href="#experience" class="block px-3 py-2 rounded-md hover:bg-ink-100 dark:hover:bg-ink-800/60">Experience</a></li>
+        <li><a href="#contact" class="block px-3 py-2 rounded-md hover:bg-ink-100 dark:hover:bg-ink-800/60">Contact</a></li>
+        <li class="pt-1"><a href="resume.pdf" download class="block px-3 py-2 rounded-md bg-brand-700 text-white text-center hover:bg-brand-600">Download résumé</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- =================== HERO =================== -->
+    <section id="hero" class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-grid opacity-70" aria-hidden="true"></div>
+      <div class="blob bg-brand-300 dark:bg-brand-800 w-[28rem] h-[28rem] -top-32 -right-32" aria-hidden="true"></div>
+      <div class="blob bg-ink-300 dark:bg-ink-800 w-[20rem] h-[20rem] top-40 -left-24" aria-hidden="true"></div>
+
+      <div class="relative max-w-6xl mx-auto px-5 sm:px-8 pt-20 sm:pt-28 pb-20 sm:pb-32">
+        <div class="max-w-3xl animate-fade-up">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium tracking-wide uppercase bg-ink-100 text-ink-700 dark:bg-ink-800 dark:text-ink-200 border border-ink-200/70 dark:border-ink-700">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            Open to data analyst roles
+          </span>
+
+          <h1 class="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ink-900 dark:text-white">
+            Hi, I'm <span class="text-brand-700 dark:text-brand-400">Kolbee Morris</span>.
+            <br class="hidden sm:block" />
+            A data analyst with a recreation-management past and a master's-in-progress future.
+          </h1>
+
+          <p class="mt-6 text-lg sm:text-xl leading-relaxed text-ink-600 dark:text-ink-300">
+            I bridge the gap between the floor and the dashboard — combining a background in
+            <span class="font-medium text-ink-800 dark:text-ink-100">Recreation Administration</span>
+            with hands-on tooling in
+            <span class="font-mono text-brand-700 dark:text-brand-300">Python</span>,
+            <span class="font-mono text-brand-700 dark:text-brand-300">SQL</span>, and
+            <span class="font-mono text-brand-700 dark:text-brand-300">Tableau</span>
+            to turn messy real-world processes into models leaders can act on.
+          </p>
+
+          <div class="mt-8 flex flex-wrap items-center gap-3">
+            <a href="#projects" class="inline-flex items-center gap-2 px-5 py-3 rounded-md bg-brand-700 text-white font-medium shadow-soft hover:bg-brand-600 hover:-translate-y-0.5 transition">
+              View my projects
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="#contact" class="inline-flex items-center gap-2 px-5 py-3 rounded-md border border-ink-300 dark:border-ink-700 text-ink-800 dark:text-ink-100 font-medium hover:bg-ink-100 dark:hover:bg-ink-800 transition">
+              Get in touch
+            </a>
+            <a href="resume.pdf" download class="inline-flex items-center gap-2 px-5 py-3 rounded-md text-brand-700 dark:text-brand-300 font-medium hover:underline">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              Download résumé
+            </a>
+          </div>
+
+          <dl class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl">
+            <div>
+              <dt class="text-xs uppercase tracking-wider text-ink-500 dark:text-ink-400">Education</dt>
+              <dd class="mt-1 font-display font-semibold text-ink-900 dark:text-white">M.S. Analytics</dd>
+            </div>
+            <div>
+              <dt class="text-xs uppercase tracking-wider text-ink-500 dark:text-ink-400">School</dt>
+              <dd class="mt-1 font-display font-semibold text-ink-900 dark:text-white">Utah State</dd>
+            </div>
+            <div>
+              <dt class="text-xs uppercase tracking-wider text-ink-500 dark:text-ink-400">Stack</dt>
+              <dd class="mt-1 font-display font-semibold text-ink-900 dark:text-white">Python · SQL</dd>
+            </div>
+            <div>
+              <dt class="text-xs uppercase tracking-wider text-ink-500 dark:text-ink-400">Based in</dt>
+              <dd class="mt-1 font-display font-semibold text-ink-900 dark:text-white">Syracuse, UT</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== ABOUT =================== -->
+    <section id="about" class="relative py-20 sm:py-28 border-t border-ink-200/60 dark:border-ink-800/60 bg-white dark:bg-ink-900/40">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8 grid lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-4">
+          <p class="text-sm font-mono uppercase tracking-widest text-brand-700 dark:text-brand-400">01 — About</p>
+          <h2 class="mt-3 font-display text-3xl sm:text-4xl font-bold tracking-tight text-ink-900 dark:text-white">
+            From the rec center to the regression line.
+          </h2>
+          <p class="mt-4 text-ink-600 dark:text-ink-300">
+            An unconventional path that turned out to be a feature, not a bug.
+          </p>
+        </div>
+
+        <div class="lg:col-span-8 space-y-5 text-lg leading-relaxed text-ink-700 dark:text-ink-200">
+          <p>
+            My career started where most analytics careers don't: managing people, programs,
+            and operations. I earned my <strong>B.S. in Recreation Administration / Sports Management</strong> from
+            <a class="text-brand-700 dark:text-brand-300 underline decoration-brand-300/60 hover:decoration-brand-500" href="https://www.usu.edu/" target="_blank" rel="noopener">Utah State University</a>
+            in 2025 — named to the <em>2024–2025 Dean's List</em> — and spent those years watching gut-feel
+            decisions wrestle with messy real-world data: staffing, attendance, cost overruns, member retention.
+            One question kept surfacing: <em>what does the data actually say?</em>
+          </p>
+          <p>
+            That question pulled me into <strong>Python, SQL, and applied statistics</strong>. Now I'm back at
+            USU pursuing a <strong>Master of Science in Data Analytics</strong> (expected May 2027), wrangling data in
+            <span class="font-mono text-brand-700 dark:text-brand-300">pandas</span>,
+            modeling behavior with <span class="font-mono text-brand-700 dark:text-brand-300">scikit-learn</span>,
+            and translating findings into Tableau dashboards that non-technical stakeholders can actually use.
+          </p>
+          <p>
+            I work at the intersection of <strong>operations and analytics</strong> — equally comfortable in a
+            staff meeting and a Jupyter notebook. I care about asking the right question first, choosing the
+            simplest model that answers it, and being honest about what the data can and can't tell us.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== SKILLS =================== -->
+    <section id="skills" class="py-20 sm:py-28 bg-ink-50 dark:bg-ink-950">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <div class="max-w-2xl">
+          <p class="text-sm font-mono uppercase tracking-widest text-brand-700 dark:text-brand-400">02 — Skills</p>
+          <h2 class="mt-3 font-display text-3xl sm:text-4xl font-bold tracking-tight text-ink-900 dark:text-white">
+            The toolkit
+          </h2>
+          <p class="mt-4 text-lg text-ink-600 dark:text-ink-300">
+            The languages, tools, and methodologies I reach for to take a question from raw data to a defensible answer.
+          </p>
+        </div>
+
+        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Languages -->
+          <article class="group rounded-xl bg-white dark:bg-ink-900 border border-ink-200/70 dark:border-ink-800 p-6 shadow-soft hover:shadow-lift hover:-translate-y-0.5 transition">
+            <div class="flex items-center gap-3">
+              <span class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-brand-100 text-brand-700 dark:bg-brand-900/60 dark:text-brand-300">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </span>
+              <h3 class="font-display text-lg font-semibold text-ink-900 dark:text-white">Languages</h3>
+            </div>
+            <p class="mt-3 text-sm text-ink-600 dark:text-ink-300">
+              The bedrock — what I write to actually move data around.
+            </p>
+            <ul class="mt-5 flex flex-wrap gap-2">
+              <li class="px-2.5 py-1 rounded-md text-xs font-mono bg-ink-100 text-ink-700 dark:bg-ink-800 dark:text-ink-200">Python</li>
+              <li class="px-2.5 py-1 rounded-md text-xs font-mono bg-ink-100 text-ink-700 dark:bg-ink-800 dark:text-ink-200">Pandas</li>
+              <li class="px-2.5 py-1 rounded-md text-xs font-mono bg-ink-100 text-ink-700 dark:bg-ink-800 dark:text-ink-200">NumPy</li>
+              <li class="px-2.5 py-1 rounded-md text-xs font-mono bg-ink-100 text-ink-700 dark:bg-ink-800 dark:text-ink-200">scikit-learn</li>
+              <li class="px-2.5 py-1 rounded-md text-xs font-mono bg-ink-100 text-ink-700 dark:bg-ink-800 dark:text-ink-200">SQL</li>
+              <li class="px-2.5 py-1 rounded-md text-xs font-mono bg-ink-100 text-ink-700 dark:bg-ink-800 dark:text-ink-200">SQL Server</li>
+              <li class="px-2.5 py-1 rounded-md text-xs font-mono bg-ink-100 text-ink-700 dark:bg-ink-800 dark:text-ink-200">Julia</li>
+            </ul>
+          </article>
+
+          <!-- Tools -->
+          <article class="group rounded-xl bg-white dark:bg-ink-900 border border-ink-200/70 dark:border-ink-800 p-6 shadow-soft hover:shadow-lift hover:-translate-y-0.5 transition">
+            <div class="flex items-center gap-3">
+              <span class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-brand-100 text-brand-700 dark:bg-brand-900/60 dark:text-brand-300">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+              </span>
+              <h3 class="font-display text-lg font-semibold text-ink-900 dark:text-white">Tools</h3>
+            </div>
+            <p class="mt-3 text-sm text-ink-600 dark:text-ink-300">
+              Where I live day-to-day — terminal, notebook, dashboard, repo.
+            </p>
+            <ul class="mt-5 flex flex-wrap gap-2">
+              <li class="px-2.5 py-1 rounded-md text-xs font-mono bg-ink-100 text-ink-700 dark:bg-ink-800 dark:text-ink-200">Tableau</li>
+              <li class="px-2.5 py-1 rounded-md text-xs font-mono bg-ink-100 text-ink-700 dark:bg-ink-800 dark:text-ink-200">Excel</li>
+              <li class="px-2.5 py-1 rounded-md text-xs font-mono bg-ink-100 text-ink-700 dark:bg-ink-800 dark:text-ink-200">Conda</li>
+              <li class="px-2.5 py-1 rounded-md text-xs font-mono bg-ink-100 text-ink-700 dark:bg-ink-800 dark:text-ink-200">macOS Terminal</li>
+              <li class="px-2.5 py-1 rounded-md text-xs font-mono bg-ink-100 text-ink-700 dark:bg-ink-800 dark:text-ink-200">Oh My Posh</li>
+              <li class="px-2.5 py-1 rounded-md text-xs font-mono bg-ink-100 text-ink-700 dark:bg-ink-800 dark:text-ink-200">GitHub</li>
+              <li class="px-2.5 py-1 rounded-md text-xs font-mono bg-ink-100 text-ink-700 dark:bg-ink-800 dark:text-ink-200">Adobe Cloud</li>
+            </ul>
+          </article>
+
+          <!-- Methodologies -->
+          <article class="group rounded-xl bg-white dark:bg-ink-900 border border-ink-200/70 dark:border-ink-800 p-6 shadow-soft hover:shadow-lift hover:-translate-y-0.5 transition">
+            <div class="flex items-center gap-3">
+              <span class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-brand-100 text-brand-700 dark:bg-brand-900/60 dark:text-brand-300">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><path d="M3 3v18h18"></path><path d="M7 15l4-4 4 4 5-7"></path></svg>
+              </span>
+              <h3 class="font-display text-lg font-semibold text-ink-900 dark:text-white">Methodologies</h3>
+            </div>
+            <p class="mt-3 text-sm text-ink-600 dark:text-ink-300">
+              The lenses — how I structure a problem before I touch the data.
+            </p>
+            <ul class="mt-5 flex flex-wrap gap-2">
+              <li class="px-2.5 py-1 rounded-md text-xs font-mono bg-ink-100 text-ink-700 dark:bg-ink-800 dark:text-ink-200">Regression Analysis</li>
+              <li class="px-2.5 py-1 rounded-md text-xs font-mono bg-ink-100 text-ink-700 dark:bg-ink-800 dark:text-ink-200">Cluster Analysis</li>
+              <li class="px-2.5 py-1 rounded-md text-xs font-mono bg-ink-100 text-ink-700 dark:bg-ink-800 dark:text-ink-200">Socratic Method</li>
+              <li class="px-2.5 py-1 rounded-md text-xs font-mono bg-ink-100 text-ink-700 dark:bg-ink-800 dark:text-ink-200">Econometrics</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== PROJECTS =================== -->
+    <section id="projects" class="py-20 sm:py-28 bg-white dark:bg-ink-900/40 border-y border-ink-200/60 dark:border-ink-800/60">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+          <div class="max-w-2xl">
+            <p class="text-sm font-mono uppercase tracking-widest text-brand-700 dark:text-brand-400">03 — Projects</p>
+            <h2 class="mt-3 font-display text-3xl sm:text-4xl font-bold tracking-tight text-ink-900 dark:text-white">
+              Selected work
+            </h2>
+            <p class="mt-4 text-lg text-ink-600 dark:text-ink-300">
+              A tour through the questions I've recently been chewing on — sports, cinema, environmental
+              economics, and global health.
+            </p>
+          </div>
+          <a href="https://github.com/KolbeeM/Kolbee-Morris-Projects" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 text-sm font-medium text-brand-700 dark:text-brand-300 hover:underline">
+            See the full repository
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
+        </div>
+
+        <div class="mt-12 grid md:grid-cols-2 gap-6">
+
+          <!-- Project 1 -->
+          <article class="group relative flex flex-col rounded-xl bg-ink-50 dark:bg-ink-900 border border-ink-200/70 dark:border-ink-800 p-6 shadow-soft hover:shadow-lift hover:-translate-y-0.5 transition">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-1 rounded-md text-[11px] font-mono uppercase tracking-wider bg-brand-100 text-brand-700 dark:bg-brand-900/60 dark:text-brand-300">Cluster Analysis</span>
+              <span class="text-xs text-ink-500 dark:text-ink-400 font-mono">Python · scikit-learn</span>
+            </div>
+            <h3 class="mt-4 font-display text-xl font-semibold text-ink-900 dark:text-white">
+              NCAA Division I Cluster Analysis
+            </h3>
+            <p class="mt-2 text-ink-600 dark:text-ink-300">
+              Identifying team archetypes across Division I basketball and surfacing the stylistic
+              fingerprints that predict deep tournament runs.
+            </p>
+            <ul class="mt-4 flex flex-wrap gap-2 text-xs">
+              <li class="px-2 py-1 rounded bg-ink-200/60 text-ink-700 dark:bg-ink-800 dark:text-ink-200 font-mono">K-Means</li>
+              <li class="px-2 py-1 rounded bg-ink-200/60 text-ink-700 dark:bg-ink-800 dark:text-ink-200 font-mono">PCA</li>
+              <li class="px-2 py-1 rounded bg-ink-200/60 text-ink-700 dark:bg-ink-800 dark:text-ink-200 font-mono">Pandas</li>
+            </ul>
+            <div class="mt-6 pt-4 border-t border-ink-200/70 dark:border-ink-800 flex items-center justify-between">
+              <a href="https://github.com/KolbeeM/Kolbee-Morris-Projects/blob/main/NCAA%20Division%20I%20Cluster%20Analysis.pdf" target="_blank" rel="noopener"
+                 class="inline-flex items-center gap-2 text-sm font-medium text-ink-800 dark:text-ink-100 hover:text-brand-700 dark:hover:text-brand-300">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.34-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.41.36.78 1.07.78 2.15 0 1.55-.02 2.8-.02 3.18 0 .31.21.67.8.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+                View on GitHub
+              </a>
+              <span class="text-xs text-ink-500 dark:text-ink-400 font-mono">2024</span>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="group relative flex flex-col rounded-xl bg-ink-50 dark:bg-ink-900 border border-ink-200/70 dark:border-ink-800 p-6 shadow-soft hover:shadow-lift hover:-translate-y-0.5 transition">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-1 rounded-md text-[11px] font-mono uppercase tracking-wider bg-brand-100 text-brand-700 dark:bg-brand-900/60 dark:text-brand-300">Trend Analysis</span>
+              <span class="text-xs text-ink-500 dark:text-ink-400 font-mono">Python · Tableau</span>
+            </div>
+            <h3 class="mt-4 font-display text-xl font-semibold text-ink-900 dark:text-white">
+              IMDb Production Efficiency Analysis
+            </h3>
+            <p class="mt-2 text-ink-600 dark:text-ink-300">
+              Visualizing how genre share, runtime, and studio output have shifted between 2000 and 2023 —
+              and which studios consistently punch above their weight. Built as an interactive Tableau workbook.
+            </p>
+            <ul class="mt-4 flex flex-wrap gap-2 text-xs">
+              <li class="px-2 py-1 rounded bg-ink-200/60 text-ink-700 dark:bg-ink-800 dark:text-ink-200 font-mono">EDA</li>
+              <li class="px-2 py-1 rounded bg-ink-200/60 text-ink-700 dark:bg-ink-800 dark:text-ink-200 font-mono">Tableau</li>
+              <li class="px-2 py-1 rounded bg-ink-200/60 text-ink-700 dark:bg-ink-800 dark:text-ink-200 font-mono">Pandas</li>
+            </ul>
+            <div class="mt-6 pt-4 border-t border-ink-200/70 dark:border-ink-800 flex items-center justify-between">
+              <a href="https://github.com/KolbeeM/Kolbee-Morris-Projects/blob/main/IMDb%20Production%20Efficiency%20Analysis.twbx" target="_blank" rel="noopener"
+                 class="inline-flex items-center gap-2 text-sm font-medium text-ink-800 dark:text-ink-100 hover:text-brand-700 dark:hover:text-brand-300">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.34-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.41.36.78 1.07.78 2.15 0 1.55-.02 2.8-.02 3.18 0 .31.21.67.8.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+                View on GitHub
+              </a>
+              <span class="text-xs text-ink-500 dark:text-ink-400 font-mono">2024</span>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="group relative flex flex-col rounded-xl bg-ink-50 dark:bg-ink-900 border border-ink-200/70 dark:border-ink-800 p-6 shadow-soft hover:shadow-lift hover:-translate-y-0.5 transition">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-1 rounded-md text-[11px] font-mono uppercase tracking-wider bg-brand-100 text-brand-700 dark:bg-brand-900/60 dark:text-brand-300">Econometrics</span>
+              <span class="text-xs text-ink-500 dark:text-ink-400 font-mono">Python · statsmodels</span>
+            </div>
+            <h3 class="mt-4 font-display text-xl font-semibold text-ink-900 dark:text-white">
+              Snake River Recreational Valuation
+            </h3>
+            <p class="mt-2 text-ink-600 dark:text-ink-300">
+              Modeling park visit frequency along the Snake River using Poisson regression to value
+              recreational benefits — an applied study at the seam of conservation and economics.
+            </p>
+            <ul class="mt-4 flex flex-wrap gap-2 text-xs">
+              <li class="px-2 py-1 rounded bg-ink-200/60 text-ink-700 dark:bg-ink-800 dark:text-ink-200 font-mono">Poisson Regression</li>
+              <li class="px-2 py-1 rounded bg-ink-200/60 text-ink-700 dark:bg-ink-800 dark:text-ink-200 font-mono">Travel Cost</li>
+              <li class="px-2 py-1 rounded bg-ink-200/60 text-ink-700 dark:bg-ink-800 dark:text-ink-200 font-mono">Statsmodels</li>
+            </ul>
+            <div class="mt-6 pt-4 border-t border-ink-200/70 dark:border-ink-800 flex items-center justify-between">
+              <a href="https://github.com/KolbeeM/Kolbee-Morris-Projects/blob/main/Snake%20River%20Recreational%20Valuation.pdf" target="_blank" rel="noopener"
+                 class="inline-flex items-center gap-2 text-sm font-medium text-ink-800 dark:text-ink-100 hover:text-brand-700 dark:hover:text-brand-300">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.34-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.41.36.78 1.07.78 2.15 0 1.55-.02 2.8-.02 3.18 0 .31.21.67.8.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+                View on GitHub
+              </a>
+              <span class="text-xs text-ink-500 dark:text-ink-400 font-mono">2025</span>
+            </div>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="group relative flex flex-col rounded-xl bg-ink-50 dark:bg-ink-900 border border-ink-200/70 dark:border-ink-800 p-6 shadow-soft hover:shadow-lift hover:-translate-y-0.5 transition">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-1 rounded-md text-[11px] font-mono uppercase tracking-wider bg-brand-100 text-brand-700 dark:bg-brand-900/60 dark:text-brand-300">Regression</span>
+              <span class="text-xs text-ink-500 dark:text-ink-400 font-mono">Python · seaborn</span>
+            </div>
+            <h3 class="mt-4 font-display text-xl font-semibold text-ink-900 dark:text-white">
+              WHO Life Expectancy Study
+            </h3>
+            <p class="mt-2 text-ink-600 dark:text-ink-300">
+              Regression analysis of WHO global health indicators against GDP — investigating which
+              macro and micro factors most reliably move the life-expectancy needle.
+            </p>
+            <ul class="mt-4 flex flex-wrap gap-2 text-xs">
+              <li class="px-2 py-1 rounded bg-ink-200/60 text-ink-700 dark:bg-ink-800 dark:text-ink-200 font-mono">OLS</li>
+              <li class="px-2 py-1 rounded bg-ink-200/60 text-ink-700 dark:bg-ink-800 dark:text-ink-200 font-mono">Feature Eng.</li>
+              <li class="px-2 py-1 rounded bg-ink-200/60 text-ink-700 dark:bg-ink-800 dark:text-ink-200 font-mono">Seaborn</li>
+            </ul>
+            <div class="mt-6 pt-4 border-t border-ink-200/70 dark:border-ink-800 flex items-center justify-between">
+              <a href="https://github.com/KolbeeM/Kolbee-Morris-Projects/blob/main/WHO%20Life%20Expectancy%20Study.pdf" target="_blank" rel="noopener"
+                 class="inline-flex items-center gap-2 text-sm font-medium text-ink-800 dark:text-ink-100 hover:text-brand-700 dark:hover:text-brand-300">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.34-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.41.36.78 1.07.78 2.15 0 1.55-.02 2.8-.02 3.18 0 .31.21.67.8.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+                View on GitHub
+              </a>
+              <span class="text-xs text-ink-500 dark:text-ink-400 font-mono">2025</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== EXPERIENCE =================== -->
+    <section id="experience" class="py-20 sm:py-28 bg-ink-50 dark:bg-ink-950">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <div class="max-w-2xl">
+          <p class="text-sm font-mono uppercase tracking-widest text-brand-700 dark:text-brand-400">04 — Experience</p>
+          <h2 class="mt-3 font-display text-3xl sm:text-4xl font-bold tracking-tight text-ink-900 dark:text-white">
+            Where I've shown up
+          </h2>
+          <p class="mt-4 text-lg text-ink-600 dark:text-ink-300">
+            Operational leadership grounds my analytics — these are the rooms where I've been responsible
+            for outcomes, not just slides.
+          </p>
+        </div>
+
+        <ol class="mt-12 relative border-l-2 border-ink-200 dark:border-ink-800 ml-3 sm:ml-4 space-y-10">
+
+          <li class="relative pl-8 sm:pl-10">
+            <span class="absolute -left-[10px] top-1.5 w-5 h-5 rounded-full bg-brand-700 ring-4 ring-ink-50 dark:ring-ink-950" aria-hidden="true"></span>
+            <div class="flex flex-wrap items-baseline gap-x-3">
+              <h3 class="font-display text-xl font-semibold text-ink-900 dark:text-white">Utah State University</h3>
+              <span class="text-sm font-mono text-ink-500 dark:text-ink-400">Aug 2025 — May 2027 (expected)</span>
+            </div>
+            <p class="mt-1 text-sm font-medium text-brand-700 dark:text-brand-300">M.S. Data Analytics · Graduate Student</p>
+            <p class="mt-3 text-ink-700 dark:text-ink-200">
+              Deepening the technical toolkit — advanced statistical modeling, database management,
+              and data visualization — while pursuing independent research that applies analytics to
+              sports, recreation, and environmental economics.
+            </p>
+          </li>
+
+          <li class="relative pl-8 sm:pl-10">
+            <span class="absolute -left-[10px] top-1.5 w-5 h-5 rounded-full bg-brand-600 ring-4 ring-ink-50 dark:ring-ink-950" aria-hidden="true"></span>
+            <div class="flex flex-wrap items-baseline gap-x-3">
+              <h3 class="font-display text-xl font-semibold text-ink-900 dark:text-white">Glen Eagle Golf Course</h3>
+              <span class="text-sm font-mono text-ink-500 dark:text-ink-400">Feb 2025 — Oct 2025</span>
+            </div>
+            <p class="mt-1 text-sm font-medium text-brand-700 dark:text-brand-300">Pro Shop Attendant · Course Management — Syracuse, UT</p>
+            <ul class="mt-3 space-y-2 text-ink-700 dark:text-ink-200 list-disc pl-5">
+              <li>Designed and ran four golf leagues end-to-end, entering weekly results and stats to streamline operations and improve the player experience.</li>
+              <li>Planned and executed 20+ tournaments and events, generating revenue exceeding <strong>$20,000 for a single event</strong>.</li>
+              <li>Analyzed sales trends and customer patterns to inform marketing and merchandising decisions.</li>
+              <li>Built lasting relationships with a diverse clientele, sharpening communication and service in a fast-paced environment.</li>
+            </ul>
+          </li>
+
+          <li class="relative pl-8 sm:pl-10">
+            <span class="absolute -left-[10px] top-1.5 w-5 h-5 rounded-full bg-ink-400 dark:bg-ink-600 ring-4 ring-ink-50 dark:ring-ink-950" aria-hidden="true"></span>
+            <div class="flex flex-wrap items-baseline gap-x-3">
+              <h3 class="font-display text-xl font-semibold text-ink-900 dark:text-white">Utah State University Athletics</h3>
+              <span class="text-sm font-mono text-ink-500 dark:text-ink-400">Aug 2022 — May 2023</span>
+            </div>
+            <p class="mt-1 text-sm font-medium text-brand-700 dark:text-brand-300">Media Relations Student Assistant — Logan, UT</p>
+            <ul class="mt-3 space-y-2 text-ink-700 dark:text-ink-200 list-disc pl-5">
+              <li>Kept live scores and stats across USU athletic events, feeding clean data to broadcasters and team analysis.</li>
+              <li>Maintained performance records for players and coaches, supporting historical tracking and strategic decision-making.</li>
+              <li>Built official media guides — bios, photos, and statistical summaries — and delivered real-time updates across social channels.</li>
+            </ul>
+          </li>
+
+          <li class="relative pl-8 sm:pl-10">
+            <span class="absolute -left-[10px] top-1.5 w-5 h-5 rounded-full bg-ink-300 dark:bg-ink-700 ring-4 ring-ink-50 dark:ring-ink-950" aria-hidden="true"></span>
+            <div class="flex flex-wrap items-baseline gap-x-3">
+              <h3 class="font-display text-xl font-semibold text-ink-900 dark:text-white">Utah State University</h3>
+              <span class="text-sm font-mono text-ink-500 dark:text-ink-400">Graduated May 2025</span>
+            </div>
+            <p class="mt-1 text-sm font-medium text-brand-700 dark:text-brand-300">B.S. Recreation Administration / Sports Management · Dean's List 2024–2025</p>
+            <p class="mt-3 text-ink-700 dark:text-ink-200">
+              Studied recreation and sports management, then layered on coursework and independent
+              projects in Python, SQL, regression and cluster analysis, and econometrics — the
+              deliberate pivot into data analytics.
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- =================== CONTACT =================== -->
+    <section id="contact" class="relative py-20 sm:py-28 bg-white dark:bg-ink-900/40 border-t border-ink-200/60 dark:border-ink-800/60">
+      <div class="max-w-4xl mx-auto px-5 sm:px-8 text-center">
+        <p class="text-sm font-mono uppercase tracking-widest text-brand-700 dark:text-brand-400">05 — Contact</p>
+        <h2 class="mt-3 font-display text-3xl sm:text-4xl font-bold tracking-tight text-ink-900 dark:text-white">
+          Let's build something honest with data.
+        </h2>
+        <p class="mt-4 text-lg text-ink-600 dark:text-ink-300">
+          I'm open to data analyst roles, freelance analyses, and conversations with people who care about asking better questions.
+        </p>
+
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+          <a href="mailto:kolbee.morris0502@gmail.com"
+             class="inline-flex items-center gap-2 px-5 py-3 rounded-md bg-brand-700 text-white font-medium shadow-soft hover:bg-brand-600 hover:-translate-y-0.5 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            kolbee.morris0502@gmail.com
+          </a>
+          <a href="resume.pdf" download
+             class="inline-flex items-center gap-2 px-5 py-3 rounded-md border border-ink-300 dark:border-ink-700 text-ink-800 dark:text-ink-100 font-medium hover:bg-ink-100 dark:hover:bg-ink-800 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Download résumé
+          </a>
+        </div>
+
+        <ul class="mt-10 flex items-center justify-center gap-4">
+          <li>
+            <a href="https://www.linkedin.com/in/kolbee-morris-526490307/" target="_blank" rel="noopener"
+               class="inline-flex items-center justify-center w-11 h-11 rounded-full border border-ink-200 dark:border-ink-700 text-ink-700 dark:text-ink-200 hover:text-brand-700 hover:border-brand-300 dark:hover:text-brand-300 dark:hover:border-brand-700 transition"
+               aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/KolbeeM" target="_blank" rel="noopener"
+               class="inline-flex items-center justify-center w-11 h-11 rounded-full border border-ink-200 dark:border-ink-700 text-ink-700 dark:text-ink-200 hover:text-brand-700 hover:border-brand-300 dark:hover:text-brand-300 dark:hover:border-brand-700 transition"
+               aria-label="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.34-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.41.36.78 1.07.78 2.15 0 1.55-.02 2.8-.02 3.18 0 .31.21.67.8.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:kolbee.morris0502@gmail.com"
+               class="inline-flex items-center justify-center w-11 h-11 rounded-full border border-ink-200 dark:border-ink-700 text-ink-700 dark:text-ink-200 hover:text-brand-700 hover:border-brand-300 dark:hover:text-brand-300 dark:hover:border-brand-700 transition"
+               aria-label="Email">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- =================== FOOTER =================== -->
+  <footer class="border-t border-ink-200/60 dark:border-ink-800/60 bg-ink-50 dark:bg-ink-950">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-ink-500 dark:text-ink-400">
+      <p>&copy; <span id="year">2026</span> Kolbee Morris. Built with care, Tailwind, and good questions.</p>
+      <p class="font-mono text-xs">
+        <a href="#hero" class="hover:text-brand-700 dark:hover:text-brand-300">↑ Back to top</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Theme toggle
+    const themeBtn = document.getElementById('theme-toggle');
+    themeBtn.addEventListener('click', () => {
+      const root = document.documentElement;
+      const isDark = root.classList.toggle('dark');
+      try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch (e) {}
+    });
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      const open = menu.classList.toggle('hidden') === false;
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    // Close on link click (mobile)
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      menu.classList.add('hidden');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }));
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
